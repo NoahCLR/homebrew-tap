@@ -1,6 +1,6 @@
 cask "mac-tweaks" do
-  version "1.0.1"
-  sha256 "a1e1db43a6876ff5b3871732190769ec80afabf89ada04930c249262dd27648f"
+  version "1.0.2"
+  sha256 "79de1bcea375b2ef83c56e028cc6932d229cf2279ede22f4fb9157f59922e2de"
 
   url "https://github.com/NoahCLR/MacTweaks/releases/download/v#{version}/MacTweaks-#{version}.zip"
   name "Mac Tweaks"
