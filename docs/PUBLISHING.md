@@ -211,3 +211,4 @@ both are signed with the same identity — permission grants survive.
 | Deprecation warning on every brew command | Cask uses string form of `depends_on macos:`. Use the symbol. |
 | App blocked at launch after upgrade | Expected (quarantine re-applied). `xattr -dr` again or Open Anyway. |
 | `release.sh` exits "Release already exists" | Version wasn't bumped; bump `CFBundleShortVersionString`. |
+| `brew upgrade` fails "Directory not empty @ rb_file_s_rename" in Caskroom, app vanishes from /Applications | Stale Caskroom version dirs (usually after the app was manually replaced outside brew). `brew uninstall --cask --force <token>`, `rm -rf /opt/homebrew/Caskroom/<token>`, remove any app remnant, reinstall. |
