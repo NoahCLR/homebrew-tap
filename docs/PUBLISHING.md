@@ -23,6 +23,7 @@ written against them.
 | `BUNDLE_ID` | Main app bundle identifier | `com.noah.MyApp` |
 | `CASK_TOKEN` | Cask name: lowercase, hyphenated | `my-app` |
 | `MIN_MACOS` | Deployment target, as a brew symbol | `:sonoma` (14) |
+| `CASK_POSTFLIGHT` | Optional cask postflight block for install-time registration, such as `pluginkit -a` for an embedded app extension | blank, or a Ruby `postflight do` block |
 | `ZAP_PATHS` | Files the app writes that `brew zap` should trash | preference plists |
 
 The tap itself is fixed: `NoahCLR/homebrew-tap`, casks in `Casks/`, installs via

@@ -13,6 +13,8 @@ set -euo pipefail
 #   {{INFO_PLIST_PATH}}  main app Info.plist, e.g. MyApp/Resources/Info.plist
 #   {{MIN_MACOS}}        brew macOS symbol, e.g. :sonoma
 #   {{CASK_DESC}}        one-line cask description, no trailing period
+#   {{CASK_POSTFLIGHT}}  optional cask postflight block; use to register appex
+#                        bundles with pluginkit, or leave blank
 #
 # Builds, signs, and publishes a release:
 #   1. refuses to run on a dirty tree, runs the tests
@@ -114,6 +116,8 @@ cask "$CASK_TOKEN" do
   depends_on macos: {{MIN_MACOS}}
 
   app "{{APP_NAME}}.app"
+
+{{CASK_POSTFLIGHT}}
 
   uninstall quit: "{{BUNDLE_ID}}"
 
