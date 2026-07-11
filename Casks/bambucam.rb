@@ -1,6 +1,6 @@
 cask "bambucam" do
-  version "1.0.0"
-  sha256 "e3973b1e8f349d6f9d10ada770369f358a2a8cd85ebcfaf3ba0cdb115208a485"
+  version "1.0.1"
+  sha256 "f351ce6fb9924b3334fb9bbd0637efacddc8c492e74ef426d982f14be4709691"
 
   url "https://github.com/NoahCLR/BambuCam/releases/download/v#{version}/BambuCam-#{version}.zip"
   name "BambuCam"
