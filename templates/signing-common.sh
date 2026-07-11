@@ -59,8 +59,13 @@ EOF
 
   # Import key + cert as PEMs. The PKCS12 route fails on macOS: security(1)
   # rejects LibreSSL p12 exports with "MAC verification failed" regardless of
-  # password. The key must be in traditional RSA form for security import.
+  # password. The key must be in traditional RSA form for security import;
+  # OpenSSL 3 (e.g. Homebrew's, shadowing /usr/bin) writes PKCS#8 by default,
+  # which security import rejects with "Unknown format in import".
   openssl rsa -in "$key_file" -out "$rsa_key_file" >/dev/null 2>&1
+  if grep -q "BEGIN PRIVATE KEY" "$rsa_key_file"; then
+    openssl rsa -traditional -in "$key_file" -out "$rsa_key_file" >/dev/null 2>&1
+  fi
   chmod 600 "$rsa_key_file"
 
   security import "$rsa_key_file" -k "$LOGIN_KEYCHAIN" -t priv -f openssl -A >/dev/null 2>&1 || true
